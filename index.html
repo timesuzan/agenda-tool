@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>会议议程生成器</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="./assets/site.css" />
+</head>
+<body>
+  <div class="app">
+    <section id="viewInput" class="view">
+      <header class="head">
+        <h1>会议议程生成器</h1>
+        <p class="sub">粘贴会议通知，自动排成一张 A4 议程图，可下载 PNG 或导出 PDF 打印</p>
+      </header>
+
+      <div class="seg" id="typeSeg">
+        <button class="seg-btn active" id="typeZh" data-type="chinese" type="button">中文会议</button>
+        <button class="seg-btn" id="typeEn" data-type="english" type="button">英文会议</button>
+      </div>
+
+      <textarea id="notice" class="notice" placeholder="把会议通知整段粘贴到这里，例如：&#10;杭州西子双语演讲俱乐部&#10;#898【中文会议】会议角色预约&#10;时间：2026年10月14日 19:00-21:00&#10;主持人：Tanvi&#10;..."></textarea>
+
+      <div class="row2">
+        <input id="word" class="input" type="text" placeholder="每日一词（选填）" />
+        <input id="wordExample" class="input" type="text" placeholder="例句（选填）" />
+      </div>
+
+      <div class="row3">
+        <button id="btnSample" class="btn ghost" type="button">填入示例</button>
+        <button id="btnClear" class="btn ghost" type="button">清空</button>
+      </div>
+
+      <button id="btnGenerate" class="btn primary" type="button">生成议程图</button>
+      <p id="parseHint" class="hint"></p>
+    </section>
+
+    <section id="viewPreview" class="view hidden">
+      <header class="head preview-head">
+        <button id="btnBack" class="btn ghost small" type="button">返回修改</button>
+        <span class="preview-title">议程预览</span>
+      </header>
+
+      <div class="canvas-wrap">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="actions">
+        <button id="btnSave" class="btn primary" type="button">下载议程图（PNG）</button>
+        <button id="btnPrint" class="btn secondary" type="button">打印 / 导出 PDF</button>
+      </div>
+      <p id="status" class="hint"></p>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <p>本页面为独立网页版，全部处理都在你的浏览器本地完成，数据不会上传。</p>
+  </footer>
+
+  <script src="./assets/parser.js"></script>
+  <script src="./assets/agenda.js"></script>
+  <script src="./assets/render.js"></script>
+  <script src="./assets/web.js"></script>
+</body>
+</html>
